@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <title>Test Basic 01</title>
+</head>
+<body class="bg-dark text-white" id="vapp"> 
+    <div class="container mt-4 ">
+        <div class="row">
+            <h3 class="display-3">Your Bill is : {{finalBill}} Rs</h3>
+            <div class="col-md-12" >
+                <div class="d-flex justify-content-between">
+                    <div v-for="course in courseList" :key="course.id" class="card" style="width: 18rem;">
+                        <img :src="course.courseImage" class="card-img-top" alt="...">
+                        <div class="card-body text-dark">
+                        <h5 class="card-title">{{course.courseName}}</h5>
+                        <p class="card-text">{{course.subTitle}}</p>
+                        <p class="badge bg-success">{{course.price}}</p><br>
+                        <a v-if="course.cart == false" @click="addToHolder(course)" class="btn btn-primary">Add to cart</a>
+                        <a v-else @click="message('This course already added in cart')" class="btn btn-primary">Added</a>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>   
+</body>
+<script src="./script.js"></script>
+</html>
