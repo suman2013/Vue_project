@@ -26,6 +26,9 @@
 					</div>
 				</div>
 			</div>
+			<div class="text-center mt-4">
+				<button class="btn btn-warning" @click="reloadGame()">Reload Game</button>
+			</div>
 		</div>
 	</main>
 </template>
@@ -60,7 +63,7 @@ export default {
         		icon:"info",
         		title:"Game Over",
         		text: `${this.winMessage}`
-      		}).then(this.reloadGame());
+      		})
     	},
 		handleClick(itemNumber){
 			if(this.winMessage){
@@ -83,6 +86,12 @@ export default {
 				this.winMessage = `${this.itemArray[3]} won`; 
 			}else if(this.itemArray[6] !== 'empty' && this.itemArray[6] === this.itemArray[7] && this.itemArray[6] === this.itemArray[8]){
 				this.winMessage = `${this.itemArray[6]} won`; 
+			}else if(this.itemArray[0] !== 'empty' && this.itemArray[0] === this.itemArray[3] && this.itemArray[0] === this.itemArray[6]){
+				this.winMessage = `${this.itemArray[0]} won`; 
+			}else if(this.itemArray[1] !== 'empty' && this.itemArray[1] === this.itemArray[4] && this.itemArray[1] === this.itemArray[7]){
+				this.winMessage = `${this.itemArray[1]} won`; 
+			}else if(this.itemArray[2] !== 'empty' && this.itemArray[2] === this.itemArray[5] && this.itemArray[2] === this.itemArray[8]){
+				this.winMessage = `${this.itemArray[2]} won`; 
 			}else if(this.itemArray[0] !== 'empty' && this.itemArray[0] === this.itemArray[4] && this.itemArray[0] === this.itemArray[8]){
 				this.winMessage = `${this.itemArray[0]} won`; 
 			}else if(this.itemArray[2] !== 'empty' && this.itemArray[2] === this.itemArray[4] && this.itemArray[2] === this.itemArray[6]){
