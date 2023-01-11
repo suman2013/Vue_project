@@ -1,15 +1,6 @@
 <template>
   <main>
-    <h1>Word limit is : {{ limit }}</h1>
-    <input type="range"
-    min="1"
-    max="50"
-    :value="limit"
-    v-on:change="handleSlideChange">
-    <button @click="generateWords">Generate Words</button>
-    <div v-if="words" class="card">
-      <p>{{ words }}</p>
-    </div>
+    
   </main>
 </template>
 
